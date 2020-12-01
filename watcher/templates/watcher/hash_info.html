@@ -1,0 +1,104 @@
+{% extends 'watcher/base_project.html' %} {% block content %}
+<div class="container">
+    <div class="section">
+        <div class="col s6">
+            <h3 style="color:#ffa726">Query:</h3>
+        </div>
+        <div class="col s6">
+            <h3>{{ hash_query }}</h3>
+        </div>
+    </div>
+    <div class="section">
+        <h3 style="color:#ffa726">VirusToltal</h3>
+        {% if artefact_vt_info.response_code == 1%}
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s6"><b>Md5:</b></div>
+            <div class="col s6">{{ artefact_vt_info.md5 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Sha1:</b></div>
+            <div class="col s6">{{ artefact_vt_info.sha1 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Sha256:</b></div>
+            <div class="col s6">{{ artefact_vt_info.sha256 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Scan date:</b></div>
+            <div class="col s6">{{ artefact_vt_info.scan_date }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Results:</b></div>
+            <div class="col s6"><span style="color:red"><b>{{ artefact_vt_info.positives }}</b></span>/<b>{{ artefact_vt_info.total }}</b></div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Link:</b></div>
+            <div class="col s6"><a href="{{ artefact_vt_info.permalink }}" target="_blank">{{ artefact_vt_info.permalink }}</a> </div>
+        </div>
+        {% else %}
+        <h4><span style="color: green"><b>No results found</b></span></h4>
+        {% endif %}
+    </div>
+    <div class="section">
+        <h3 style="color:#ffa726">Hybrid Analysis</h3>
+        {% if artefact_hybrid_info.hybrid_exists == 1%}
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s6"><b>Md5:</b></div>
+            <div class="col s6">{{ artefact_hybrid_info.md5 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Sha1:</b></div>
+            <div class="col s6">{{ artefact_hybrid_info.sha1 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Sha256:</b></div>
+            <div class="col s6">{{ artefact_hybrid_info.sha256 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Scan date:</b></div>
+            <div class="col s6">{{ artefact_hybrid_info.analysis_start_time }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Results:</b></div>
+            <div class="col s6"><span style="color:red"><b>{{ artefact_hybrid_info.av_detect }} %</b></span> ({{ artefact_hybrid_info.verdict }})</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Link:</b></div>
+            <div class="col s6"><a href="{{ artefact_hybrid_info.hybrid_link }}" target="_blank">{{ artefact_hybrid_info.hybrid_link }}</a> </div>
+        </div>
+        {% else %}
+        <h4><span style="color: green"><b>No results found</b></span></h4>
+        {% endif %}
+    </div>
+    <div class="section">
+        <h3 style="color:#ffa726">AlienVault OTX</h3>
+        {% if artefact_otx_info.otx_exists == 1%}
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s6"><b>Md5:</b></div>
+            <div class="col s6">{{ artefact_otx_info.md5 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Sha1:</b></div>
+            <div class="col s6">{{ artefact_otx_info.sha1 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Sha256:</b></div>
+            <div class="col s6">{{ artefact_otx_info.sha256 }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Scan date:</b></div>
+            <div class="col s6">{{ artefact_otx_info.analysis_start_time }}</div>
+        </div>
+        <div class="row">
+            <div class="col s6"><b>Link:</b></div>
+            <div class="col s6"><a href="{{ artefact_otx_info.otx_link }}" target="_blank">{{ artefact_otx_info.otx_link }}</a> </div>
+        </div>
+        {% else %}
+        <h4><span style="color: green"><b>No results found</b></span></h4>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

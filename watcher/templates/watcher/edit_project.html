@@ -1,0 +1,45 @@
+{% extends 'watcher/base_project.html' %} {% block content %}
+<div class="container">
+    <h4>Edit project</h4>
+    <div class="section">
+        <form action="{% url 'watcher:edit_project' project_id=editProjectForm.initial.id %}" method="post">
+            {% csrf_token %} 
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ editProjectForm.name }}
+                        <label class="active" for="name">Project name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ editProjectForm.vt_api }}
+                        <label class="active" for="vt_api">VT API key</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ editProjectForm.hybrid_api }}
+                        <label class="active" for="hybrid_api">Hybrid Analysis API key</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ editProjectForm.otx_api }}
+                        <label class="active" for="otx_api">Alienvault OTX API key</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 offset-s12"><button class="btn waves-effect waves-light green" type="submit" name="action">Save
+            <i class="material-icons right">save</i>
+        </button></div>
+        </form>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section">
+        <button class="btn waves-effect waves-light" onclick="window.history.back()">Back
+            <i class="material-icons right">navigate_before</i></button>
+    </div>
+</div>
+{% endblock %}

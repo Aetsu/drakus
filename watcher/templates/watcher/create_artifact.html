@@ -1,0 +1,32 @@
+{% extends 'watcher/base_project.html' %} {% block content %}
+<div class="container">
+    <h4>Create artifact</h4>
+    <div class="section">
+        <form action="{% url 'watcher:create_artifact'%}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ createArtifact.name }}
+                    <label class="active" for="name">Artifact name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ createArtifact.hash_query }}
+                    <label class="active" for="hash_query">Query</label>
+                </div>
+            </div>
+            <div class="col s12 offset-s12">
+                <button class="btn waves-effect waves-light red" type="submit" name="action">Create
+                <i class="material-icons right">create</i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+        <button class="btn waves-effect waves-light" onclick="window.history.back()">Back
+            <i class="material-icons right">navigate_before</i></button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Drakus</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href='{% static "images/logo.png" %}'>
+    <link rel="stylesheet" href='{% static "css/material_icons.css" %}'>
+    <link rel="stylesheet" href='{% static "css/materialize.min.css" %}'>
+    <script src='{% static "js/jquery-3.5.1.min.js" %}'></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper orange lighten-1">
+            <a href="#!" class="center brand-logo"><i class="material-icons">find_in_page</i>Drakus</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="{% url 'watcher:projects'%}">Projects</a></li>              
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{% url 'users:logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    {% block content %} {% endblock %}
+    <script src='{% static "js/materialize.min.js" %}'></script>
+</body>
+
+</html>

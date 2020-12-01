@@ -1,0 +1,28 @@
+{% extends 'watcher/base_project.html' %} {% block content %}
+<div class="container">
+    <h2>Search hash</h2>
+    <form action="/watcher/search_hash" method="post">
+        {% csrf_token %}
+        <div class="input-field col s12">
+            {{ hash_form.hash_query }}
+            <label class="active" for="hash_query">Hash</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">search</i>
+          </button>
+    </form>
+    <!-- <div class="separator"></div>
+    <h2>Search URL</h2>
+    <form action="/watcher/search_hash" method="post">
+        {% csrf_token %}
+        <div class="input-field col s12">
+            {{ url_form.url_query }}
+            <label class="active" for="url_query">URL</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">search</i>
+          </button>
+    </form> -->
+</div>
+
+{% endblock %}

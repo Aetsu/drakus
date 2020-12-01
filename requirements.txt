@@ -1,0 +1,4 @@
+Django==3.0.8
+OTXv2==1.5.10
+APScheduler==3.6.3
+requests==2.24.0

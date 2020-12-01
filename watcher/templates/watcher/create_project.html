@@ -1,0 +1,44 @@
+{% extends 'watcher/base_project.html' %} {% block content %}
+<div class="container">
+    <h4>Create project</h4>
+    <div class="section">
+        <form action="{% url 'watcher:create_project'%}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ createProjectForm.name }}
+                        <label class="active" for="name">Project name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ createProjectForm.vt_api }}
+                        <label class="active" for="vt_api">VT API key</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ createProjectForm.hybrid_api }}
+                        <label class="active" for="hybrid_api">Hybrid Analysis API key</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ createProjectForm.otx_api }}
+                        <label class="active" for="otx_api">Alienvault OTX API key</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 offset-s12"><button class="btn waves-effect waves-light red" type="submit" name="action">Create
+            <i class="material-icons right">create</i>
+        </button></div>
+        </form>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+        <button class="btn waves-effect waves-light" onclick="window.history.back()">Back
+            <i class="material-icons right">navigate_before</i></button>
+    </div>
+</div>
+{% endblock %}
